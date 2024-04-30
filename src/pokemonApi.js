@@ -35,6 +35,14 @@ async function putDataOnPage(dataToDisplay){
         type2Display.textContent = "Type 2: ";
     }
 
+    //Wishlist: add random change to select front_shiny instead of front default
+    let imageContainer = document.getElementsByClassName("pokemonImage")[0];
+    let imageElement = imageContainer.getElementsByTagName("IMG")[0];
+
+    imageElement.src = dataToDisplay.sprites.front_default;
+
+    // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;
+
 }
 
 // Button calls this
