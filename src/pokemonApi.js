@@ -109,7 +109,21 @@ async function generateTeamData(){
 }
 
 
-async function showTeamData(){
+async function showTeamData(teamToDisplay){
+    let teamDisplaySection = document.getElementById("team-display");
+    teamDisplaySection.innerHTML = ""
+
+    teamToDisplay.forEach((pokemon) => {
+
+        let newPokemonCard = document.createElement("div");
+
+        let pokemonNameTitle = document.createElement("h3")
+        pokemonNameTitle.textContent = pokemon.name
+
+        newPokemonCard.appendChild(pokemonNameTitle);
+
+        teamDisplaySection.appendChild(newPokemonCard);
+    });
 
 }
 
