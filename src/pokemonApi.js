@@ -53,7 +53,7 @@ async function putDataOnPage(dataToDisplay){
         console.log("Shiny Pokemon found!")
     } else {
         imageElement.src = dataToDisplay.sprites.front_default;
-    }
+    };
 
 
     // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;
@@ -123,6 +123,22 @@ async function showTeamData(teamToDisplay){
 
         newPokemonCard.appendChild(pokemonNameTitle);
 
+        // Pokemon image and shiny chance
+        let imageContainer = document.createElement("div");
+        let imageElement = document.createElement("IMG");
+        imageContainer.appendChild(imageElement);
+    
+        let oddsUpperLimit = 4;
+        let shinyResult = Math.floor(Math.random() * oddsUpperLimit) + 1;
+    
+        if (shinyResult == 1 ) {
+            imageElement.src = pokemon.sprites.front_shiny;
+            console.log("Shiny Pokemon found!")
+        } else {
+            imageElement.src = pokemon.sprites.front_default;
+        };
+
+        newPokemonCard.appendChild(imageContainer);
         
         // Pokemon Types
         let type1Display = document.createElement("div");
@@ -158,8 +174,8 @@ async function showTeamData(teamToDisplay){
         
         pokemonAudioPlayButton.appendChild(pokemonAudioElement);
         newPokemonCard.appendChild(pokemonAudioPlayButton);
-        // Pokemon image and shiny chance
-        
+
+
         
         // Apply all content to page
         teamDisplaySection.appendChild(newPokemonCard);
