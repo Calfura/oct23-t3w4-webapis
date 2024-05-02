@@ -56,8 +56,19 @@ async function putDataOnPage(dataToDisplay){
     }
 
 
-
     // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;
+
+
+
+    let cryUrl = dataToDisplay.cries.latest;
+    let pokemonAudioElement = document.querySelector(".pokemonCry audio");
+    pokemonAudioElement.src = cryUrl;
+
+    let pokemonAudioPlayButton = document.querySelector(".pokemonCry")
+    pokemonAudioPlayButton.addEventListener("click", () => {
+        pokemonAudioElement.volume = 0.1;
+        pokemonAudioElement.play()
+    })
 
 }
 
